@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// タスクの入力フォームを表示する（GET）
+Route::get('/create/', [PostController::class, 'showCreatePage']);
+
+// タスクを入力する（POST)
+Route::post('/create/', [PostController::class, 'create']);
