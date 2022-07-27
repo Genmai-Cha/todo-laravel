@@ -15,4 +15,16 @@ class PostController extends Controller
     {
         return view('posts.create');
     }
+
+    /**
+     * (post) バリデーションをする - Illuminate\Http\Requestのvalidateメソッドを使う
+     */
+    public function create(Request $request)
+    {
+        $request->validate([
+            // バリデーションルールを入れる
+            'title' => 'string | min: 5',
+            'post_contents"' => 'required | string'
+        ]);
+    }
 }
