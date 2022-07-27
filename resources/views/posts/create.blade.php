@@ -9,12 +9,28 @@
 <body>
     <form action="/create/" method="post">
     @csrf
-    
+
     <label>タイトル : <input type="text" name="title"></label>
+    <!-- もし 'title'でバリデーションエラーがあったら -->
+    @if ($errors->has('title'))
+        <ul>
+        @foreach ($errors->get('title') as $message)
+            <li>{{ $message }}</li>
+        @endforeach
+        </ul>
+    @endif
     <br>
     <label for="post_contents">本文</label>
     <textarea id="post_contents" name="post_contents" id="" cols="30" rows="10"></textarea>
-    <input type="submit" value="送信する">
+    <!-- もし 'post_contents'でバリデーションエラーがあったら -->
+    @if ($errors->has('post_contents'))
+        <ul>
+        @foreach ($errors->get('post_contents') as $message)
+            <li>{{ $message }}<li>
+        @endforeach
+        </ul>
+    @endif
+    <input type="submit" value="投稿">
     </form>
 </body>
 </html>
