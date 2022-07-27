@@ -7,8 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="/create/" method="post">
+    @csrf
+    
     <label>タイトル : <input type="text" name="title"></label>
+    <br>
     <label for="post_contents">本文</label>
     <textarea id="post_contents" name="post_contents" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="送信する">
+    </form>
 </body>
 </html>
