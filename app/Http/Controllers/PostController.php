@@ -24,7 +24,7 @@ class PostController extends Controller
         $request->validate([
             // バリデーションルールを入れる
             'title' => 'string | min: 5',
-            'post_contents"' => 'required | string'
+            'post_contents' => 'required | string'
         ]);
     }
 }
