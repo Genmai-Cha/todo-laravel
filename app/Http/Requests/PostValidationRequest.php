@@ -27,4 +27,12 @@ class PostValidationRequest extends FormRequest
             'title' => 'string|min:5'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.string' => 'タイトルは文字列です',
+            'title.min' => 'タイトルは5文字以上です'
+        ];
+    }
 }
